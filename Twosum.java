@@ -15,6 +15,16 @@ public class Twosum {
     public static void main(String args[]) {
         int[] nums = {3, 4, 5, 2, 1};
         int target = 6;
+//        Using brute force: solution one.
+//        for (int i = 0; i < nums.length; i++) {
+//            for (int j = i + 1; j < nums.length; j++) {
+//                if (nums[j] == target - nums[i]) {
+//                    System.out.println(i+" , "+ j);
+//                }
+//            }
+//        }
+
+// using hashtable(Hashmap): solution: 2
         Map<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
             map.put(nums[i], i);
@@ -26,7 +36,7 @@ public class Twosum {
         for (int i = 0; i < nums.length; i++) {
             int complement = target - nums[i];
             if (map.containsKey(complement) && (map.get(complement) != i)) {
-                System.out.println(i + " " + map.get(complement));
+                System.out.println(i + " , " + map.get(complement));
                 //i, map.get(complement);
             }
         }
